@@ -11,5 +11,5 @@ export class Usuario{
     telefono: string=""
     direccion: string=""
     roles: Rol[]=[]
-    foto: string=""
+    fotoUsuario: string=""
 }

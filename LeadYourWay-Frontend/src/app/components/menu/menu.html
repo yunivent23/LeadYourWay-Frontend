@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-toolbar class="custom-toolbar">
+    <button
+      class="btn-rojo"
+      mat-Button
+      [matMenuTriggerFor]="menuUsuarios"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>business</mat-icon>Proveedor
+    </button>
+    <button
+      class="btn-rojo"
+      mat-Button
+      [matMenuTriggerFor]="menuBicicletas"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>computer</mat-icon>Software
+    </button>
+  </mat-toolbar>
+
+  <mat-menu #menuUsuarios="matMenu">
+    <button mat-menu-item routerLink="/users"><mat-icon>list</mat-icon>Listar</button>
+    <button mat-menu-item routerLink="/users/news"><mat-icon>add</mat-icon>Registrar</button>
+    <button mat-menu-item routerLink="/users/searchs"><mat-icon>search</mat-icon>Buscar</button>
+  </mat-menu>
+  <mat-menu #menuBicicletas="matMenu">
+    <button mat-menu-item routerLink="/bicicletas"><mat-icon>list</mat-icon>Listar</button>
+    <button mat-menu-item routerLink="/bicicletas/news"><mat-icon>add</mat-icon>Registrar</button>
+    <button mat-menu-item routerLink="/bicicletas/searchs"><mat-icon>search</mat-icon>Buscar</button>
+  </mat-menu>
+</div>
+
