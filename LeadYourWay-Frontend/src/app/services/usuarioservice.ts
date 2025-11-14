@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Usuario } from '../models/usuario';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Users } from '../models/users';
 const base_url = environment.base;
 
 @Injectable({
   providedIn: 'root',
 })
 export class Usuarioservice {
-  private url=`${base_url}/users`;
+  private url=`${base_url}/usuarios`;
 
-  private listaCambio = new Subject<Usuario[]>();
+  private listaCambio = new Subject<Users[]>();
   constructor(private http: HttpClient){}
   list(){
-    return this.http.get<Usuario[]>(this.url);
+    return this.http.get<Users[]>(this.url);
   }
-  insert(u:Usuario){
+  insert(u:Users){
     return this.http.post(this.url,u);
   }
-  setList(listaNueva: Usuario[]){
+  setList(listaNueva: Users[]){
     this.listaCambio.next(listaNueva);
   }
   getList(){
     return this.listaCambio.asObservable();
   }
   listId(id:number){
-    return this.http.get<Usuario>(`${this.url}/${id}`);
+    return this.http.get<Users>(`${this.url}/${id}`);
   }
-  update(u:Usuario){
+  update(u:Users){
     return this.http.put(`${this.url}`, u, { responseType: 'text' });
   }
   delete(id:number){
@@ -36,7 +36,7 @@ export class Usuarioservice {
   }
   searchName(nombre:string){
     const params={n:nombre};
-    return this.http.get<Usuario[]>(`${this.url}/busquedas`, { params });
+    return this.http.get<Users[]>(`${this.url}/busquedas`, { params });
   }
 
 }

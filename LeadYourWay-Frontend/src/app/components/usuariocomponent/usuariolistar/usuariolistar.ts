@@ -4,8 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
-import { Usuario } from '../../../models/usuario';
 import { Usuarioservice } from '../../../services/usuarioservice';
+import { Users } from '../../../models/users';
 
 @Component({
   selector: 'app-usuariolistar',
@@ -14,7 +14,7 @@ import { Usuarioservice } from '../../../services/usuarioservice';
   styleUrl: './usuariolistar.css',
 })
 export class Usuariolistar implements OnInit{
-  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
+  dataSource: MatTableDataSource<Users> = new MatTableDataSource();
   displayedColumns: string[] = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6' , 'c7', 'c8' , 'c9'];
 
   constructor(private uS: Usuarioservice) {}
