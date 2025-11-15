@@ -1,6 +1,6 @@
-import { Rol } from "./rol"
+import { Role } from "./role"
 
-export class Usuario{
+export class Users{
     id: number=0
     username: string=""
     password: string=""
@@ -10,6 +10,6 @@ export class Usuario{
     fecha: Date=new Date()
     telefono: string=""
     direccion: string=""
-    roles: Rol[]=[]
-    foto: string=""
+    roles: Role[]=[]
+    fotoUsuario: string=""
 }

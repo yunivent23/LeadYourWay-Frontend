@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { Usuariolistar } from "./usuariolistar/usuariolistar";
 
 @Component({
   selector: 'app-usuariocomponent',
-  imports: [MatIconModule, MatToolbarModule, MatButtonModule, MatMenuModule,RouterLink],
+  imports: [RouterOutlet, Usuariolistar],
   templateUrl: './usuariocomponent.html',
   styleUrl: './usuariocomponent.css',
 })
 export class Usuariocomponent {
-
+  constructor(public route:ActivatedRoute){}
 }
