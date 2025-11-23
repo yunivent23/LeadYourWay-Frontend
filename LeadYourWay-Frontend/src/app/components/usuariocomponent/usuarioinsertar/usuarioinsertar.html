@@ -1,1 +1,124 @@
-<p>usuarioinsertar works!</p>
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <h2>{{ edicion ? 'Editar usuario' : 'Registrar usuario' }}</h2>
+  </div>
+  <div style="text-align: center; margin: 2%">
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field>
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="id" required />
+
+        @if (form.get('id')?.hasError('required')) {
+        <mat-error>El campo id es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      }
+      <br />
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="username" required />
+
+        @if (form.get('username')?.hasError('required')) {
+        <mat-error>El campo nombre es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="dni" required />
+
+        @if (form.get('dni')?.hasError('required')) {
+        <mat-error>El campo DNI es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required />
+        @if (form.get('email')?.hasError('required')) {
+        <mat-error>El campo Email es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>Fecha de registro</mat-label>
+        <input matInput formControlName="fecha" required />
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        @if (form.get('fecha')?.hasError('required')) {
+        <mat-error>El campo Fecha de registro es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Teléfono</mat-label>
+        <input matInput formControlName="telefono" required />
+        @if (form.get('telefono')?.hasError('required')) {
+        <mat-error>El campo telefono es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" required />
+        @if (form.get('direccion')?.hasError('required')) {
+        <mat-error>El campo phone es obligatorio.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+      <div class="photo-upload-container">
+        <label class="photo-label">Foto de Perfil:</label>
+        
+        <div class="photo-preview-area">
+          @if (selectedFilePreview) {
+            <img [src]="selectedFilePreview" alt="Vista previa de la foto" class="preview-img">
+          } @else {
+            <mat-icon class="default-icon">account_circle</mat-icon>
+          }
+        </div>
+        
+        <input type="file" (change)="onFileSelected($event)" #fileInput hidden />
+        <button mat-raised-button color="primary" type="button" (click)="fileInput.click()">
+          <mat-icon>cloud_upload</mat-icon> Subir Foto
+        </button>
+        
+        @if (fileName) {
+          <span class="file-name-display">{{ fileName }}</span>
+        } @else {
+          <span class="file-name-display-placeholder">Opcional</span>
+        }
+      </div>
+      <br />
+      <div class="custom-field">
+        <label>Estado</label>
+        <mat-radio-group formControlName="enabled" aria-label="enabled" required>
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <br />
+      <div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Tipo de usuario:</mat-label>
+          <mat-select formControlName="roles" required>
+            @for (u of tipos; track u.value) {
+            <mat-option [value]="u.value">
+              {{ u.viewValue }}
+            </mat-option>
+            }
+          </mat-select>
+
+          @if (form.get('type')?.hasError('required')) {
+          <mat-error>El campo phone es obligatorio.</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <br />
+
+      <button matButton>{{ edicion ? 'Actualizar' : 'Registrar' }}</button>
+    </form>
+  </div>
+</div>
