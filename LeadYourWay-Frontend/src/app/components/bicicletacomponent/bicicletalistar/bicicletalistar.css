@@ -1,0 +1,116 @@
+
+.bike-card-grid {
+  display: grid;
+  /* Crea columnas responsivas, mínimo 300px */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bike-card {
+  border: 1px solid #f9e2e5 !important; 
+  height: 100%;
+  box-shadow: none !important;
+}
+
+.card-image-wrapper {
+  position: relative;
+}
+
+.bike-card img[mat-card-image] {
+  max-height: 200px;
+  object-fit: contain; /* Usa 'contain' para asegurar que la bicicleta se vea completa */
+  padding: 10px;
+  /* Asegura que el fondo de la imagen (si es blanco) no se mezcle */
+  background-color: #f7f7f7;
+}
+
+.price-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bike-card-content {
+  padding-top: 5px !important;
+}
+
+.bike-model-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bike-short-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 10px;
+  /* Estilo para simular la limitación de texto de la imagen */
+  max-height: 4.2em; /* Aproximadamente 3 líneas */
+  overflow: hidden;
+  display: -webkit-box;
+  /*-webkit-line-clamp: 3;*/
+  -webkit-box-orient: vertical;
+}
+
+/* -------------------------------------- */
+/* 4. ACCIONES (CLIENTE vs SUMINISTRADOR) */
+/* -------------------------------------- */
+.bike-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Alinea el padding para que coincida con el borde de la tarjeta */
+  padding: 10px 16px 16px !important;
+}
+
+/* ESTILOS PARA CLIENTE */
+.info-button {
+  background-color: #d81b60 !important; /* Rojo vibrante */
+  color: white !important;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 10px;
+  line-height: 30px;
+}
+
+.reserve-button {
+  color: #d81b60 !important; /* Rojo vibrante */
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.reserve-button mat-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-left: -4px;
+}
+
+/* ESTILOS PARA SUMINISTRADOR */
+.admin-edit-button,
+.admin-delete-button {
+  /* Estilos base para que tengan una altura y tamaño coherente con los de cliente */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 10px;
+}
+
+.admin-edit-button {
+  background-color: #1976d2 !important; /* Azul primario para Editar */
+  color: white !important;
+}
+
+.admin-delete-button {
+  background-color: #f44336 !important; /* Rojo de advertencia para Eliminar */
+  color: white !important;
+}

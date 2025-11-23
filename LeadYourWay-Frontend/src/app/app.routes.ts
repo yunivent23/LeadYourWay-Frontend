@@ -15,7 +15,7 @@ export const routes: Routes = [
     ],
     },
     {
-        path:'bicicletas',
+        path:'bicicleta',
         component:Bicicletacomponent,
         children:[
         {path:'news',component:Bicicletainsertar},
