@@ -1,1 +1,67 @@
-<p>bicicletalistar works!</p>
+<div class="bike-card-grid">
+  <div style="text-align: center; margin: 5%">
+    <h1>Lista de bicicletas</h1>
+  </div>
+  <mat-card *ngFor="let bicicleta of bicicletas" class="bike-card" appearance="outlined">
+    <div class="card-image-wrapper">
+    <img
+        mat-card-image
+        [src]="bicicleta.fotoBicicleta"
+        [alt]="'Foto de ' + bicicleta.modeloBicicleta"
+    />
+    <div class="price-overlay">
+        {{ bicicleta.precioBicicleta | currency : 'USD' : 'symbol' : '1.0-0' }} por hora
+    </div>
+    </div>
+
+
+    <mat-card-content class="bike-card-content">
+
+    <mat-card-title class="bike-model-title">{{ bicicleta.modeloBicicleta }}</mat-card-title>
+
+    <p class="bike-short-description"> {{ bicicleta.descripcionBicicleta }} </p>
+
+    </mat-card-content>
+
+
+    <mat-card-actions class="bike-card-actions">
+
+      <ng-container *ngIf="currentUserRole === 'cliente'">
+
+        <button
+        mat-raised-button
+        color="warn"
+        class="info-button"
+        routerLink="['/bicicletas', bicicleta.idBicicleta]"
+        > + INFO
+        </button>
+        <button mat-button class="reserve-button">
+        Reservar Ahora <mat-icon>chevron_right</mat-icon>
+        </button>
+    
+    </ng-container>
+
+
+      <ng-container *ngIf="currentUserRole === 'suministrador'">
+        <button
+        mat-raised-button
+        color="primary"
+        (click)="onEdit(bicicleta)"
+        class="admin-edit-button"
+        ><mat-icon>edit</mat-icon> Editar
+        </button>
+        <button
+        mat-flat-button
+        color="warn"
+        (click)="onDelete(bicicleta)"
+        class="admin-delete-button"
+        ><mat-icon>delete</mat-icon> Eliminar
+        </button>
+
+    </ng-container>
+
+
+    </mat-card-actions>
+
+    </mat-card>
+</div>

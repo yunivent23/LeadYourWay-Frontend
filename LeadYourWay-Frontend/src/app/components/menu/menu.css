@@ -1,6 +1,6 @@
 /* --- Toolbar --- */
 .custom-toolbar {
-  background-color: rgb(251, 140, 0); /* verde principal */
+  background-color: #d81b60;/* verde principal */
   display: flex;
   align-items: center;
   padding: 0 8px;
@@ -8,8 +8,8 @@
 
 /* --- Botón principal --- */
 .btn-rojo {
-  background-color: rgb(251, 140, 0);
-  border: none;
+  background-color: #d81b60;
+  border: none1px solid white;
   font-size: smaller;
   border-radius: 4px;
   margin: 4px;
@@ -18,12 +18,13 @@
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  color: rgb(15, 203, 71);
-  transition: background-color 0.2s ease;
+  color: white;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-rojo:hover {
-  background-color: rgb(15, 203, 71);
+  background-color: white;
+  color: #d81b60;
 }
 
 /* --- Icono --- */
@@ -48,9 +49,9 @@
 
 /* --- Menú desplegable translúcido verde claro --- */
 .mat-mdc-menu-panel {
-  background-color: rgba(144, 238, 144, 0.3) !important; /* verde claro translúcido (lightgreen con transparencia) */
+  background-color: rgba(249, 226, 229, 0.9) !important; /* verde claro translúcido (lightgreen con transparencia) */
   backdrop-filter: blur(6px); /* efecto suave de vidrio */
-  border: 1px solid rgba(46, 158, 46, 0.3);
+  border: 1px solid rgba(216, 27, 96, 0.3);
   border-radius: 8px;
   padding: 4px 0;
 }
@@ -63,5 +64,10 @@
 }
 
 .mat-mdc-menu-item:hover {
-  background-color: rgba(46, 158, 46, 0.2) !important; /* un verde más visible al pasar el mouse */
+  background-color: rgba(216, 27, 96, 0.1) !important;
+
+}
+
+.mat-mdc-menu-item:hover mat-icon {
+    color: #d81b60 !important;
 }
