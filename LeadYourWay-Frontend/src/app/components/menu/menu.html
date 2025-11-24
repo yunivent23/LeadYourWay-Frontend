@@ -6,7 +6,7 @@
       [matMenuTriggerFor]="menuUsuarios"
       aria-label="Example icon-button with menu icon"
     >
-      <mat-icon>business</mat-icon>Usuario
+      <mat-icon>person</mat-icon>Usuario
     </button>
     <button
       class="btn-rojo"
@@ -14,7 +14,15 @@
       [matMenuTriggerFor]="menuBicicletas"
       aria-label="Example icon-button with menu icon"
     >
-      <mat-icon>computer</mat-icon>Bicicleta
+      <mat-icon> directions_bike</mat-icon>Bicicleta
+    </button>
+    <button
+      class="btn-rojo"
+      mat-Button
+      routerLink="/sesion/inicio"
+      aria-label="Ir a inicio de sesión"
+    >
+      <mat-icon>login</mat-icon>Log in
     </button>
   </mat-toolbar>
 
@@ -28,5 +36,6 @@
     <button mat-menu-item routerLink="/bicicleta/news"><mat-icon>add</mat-icon>Registrar</button>
     <button mat-menu-item routerLink="/bicicleta/searchs"><mat-icon>search</mat-icon>Buscar</button>
   </mat-menu>
+  
 </div>
 
