@@ -2,66 +2,44 @@
   <div style="text-align: center; margin: 5%">
     <h1>Lista de bicicletas</h1>
   </div>
-  <mat-card *ngFor="let bicicleta of bicicletas" class="bike-card" appearance="outlined">
-    <div class="card-image-wrapper">
-    <img
-        mat-card-image
-        [src]="bicicleta.fotoBicicleta"
-        [alt]="'Foto de ' + bicicleta.modeloBicicleta"
-    />
-    <div class="price-overlay">
-        {{ bicicleta.precioBicicleta | currency : 'USD' : 'symbol' : '1.0-0' }} por hora
-    </div>
-    </div>
 
+  <mat-card class="example-card" appearance="outlined" *ngFor="let bici of bicicletas">
 
-    <mat-card-content class="bike-card-content">
+    <mat-card-header>
+      <mat-card-title>{{ bici.marcaBicicleta }} - {{ bici.tipoBicicleta }}</mat-card-title>
+      <mat-card-subtitle>{{ bici.colorBicicleta }}</mat-card-subtitle>
+    </mat-card-header>
 
-    <mat-card-title class="bike-model-title">{{ bicicleta.modeloBicicleta }}</mat-card-title>
+    <img mat-card-image [src]="bici.fotoBicicleta" alt="Foto bicicleta" />
 
-    <p class="bike-short-description"> {{ bicicleta.descripcionBicicleta }} </p>
-
+    <mat-card-content>
+      <p>Precio: S/ {{ bici.precioBicicleta }}</p>
+      <p *ngIf="bici.disponible">Disponible</p>
+      <p *ngIf="!bici.disponible">No disponible</p>
     </mat-card-content>
 
+    <mat-card-actions>
 
-    <mat-card-actions class="bike-card-actions">
+      <!-- BOTONES PARA CLIENTE -->
+      <button mat-button color="primary" *ngIf="esCliente()">
+        Ver más información
+      </button>
 
-      <ng-container *ngIf="currentUserRole === 'cliente'">
+      <button mat-button color="accent" *ngIf="esCliente()">
+        Alquilar
+      </button>
 
-        <button
-        mat-raised-button
-        color="warn"
-        class="info-button"
-        routerLink="['/bicicletas', bicicleta.idBicicleta]"
-        > + INFO
-        </button>
-        <button mat-button class="reserve-button">
-        Reservar Ahora <mat-icon>chevron_right</mat-icon>
-        </button>
-    
-    </ng-container>
+      <!-- BOTONES PARA SUMINISTRADOR -->
+      <button mat-button color="warn" *ngIf="esSuministrador()">
+        Editar
+      </button>
 
-
-      <ng-container *ngIf="currentUserRole === 'suministrador'">
-        <button
-        mat-raised-button
-        color="primary"
-        (click)="onEdit(bicicleta)"
-        class="admin-edit-button"
-        ><mat-icon>edit</mat-icon> Editar
-        </button>
-        <button
-        mat-flat-button
-        color="warn"
-        (click)="onDelete(bicicleta)"
-        class="admin-delete-button"
-        ><mat-icon>delete</mat-icon> Eliminar
-        </button>
-
-    </ng-container>
-
+      <button mat-button color="warn" *ngIf="esSuministrador()" (click)="eliminar(bici.idBicicleta)">
+        Eliminar
+      </button>
 
     </mat-card-actions>
 
-    </mat-card>
+  </mat-card>
+
 </div>

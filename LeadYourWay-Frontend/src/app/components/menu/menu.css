@@ -1,15 +1,15 @@
 /* --- Toolbar --- */
 .custom-toolbar {
-  background-color: #F74038;/* verde principal */
+  background-color: #d81b60;/* verde principal */
   display: flex;
   align-items: center;
-  padding: 0 8px;
+  padding: 0;
 }
 
 /* --- Botón principal --- */
 .btn-rojo {
-  background-color: #FEE8E7;
-  border: none1px solid black;
+  background-color: #d81b60;
+  border: none1px solid white;
   font-size: smaller;
   border-radius: 4px;
   margin: 4px;
@@ -44,7 +44,7 @@
 /* --- Asegurar color blanco --- */
 .custom-toolbar button,
 .custom-toolbar mat-icon {
-  color: gray;
+  color: white;
 }
 
 /* --- Menú desplegable translúcido verde claro --- */
@@ -69,5 +69,9 @@
 }
 
 .mat-mdc-menu-item:hover mat-icon {
-    color: #F74038 !important;
+    color: #d81b60 !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }

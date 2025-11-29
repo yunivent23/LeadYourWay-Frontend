@@ -1,116 +1,147 @@
+/* ========================================= */
+/* === ESTILOS PARA LA LISTA DE BICICLETAS === */
+/* ========================================= */
 
+/* GRID donde se ubican las cards */
 .bike-card-grid {
   display: grid;
-  /* Crea columnas responsivas, mínimo 300px */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 20px;
 }
 
-.bike-card {
-  border: 1px solid #f9e2e5 !important; 
-  height: 100%;
-  box-shadow: none !important;
+/* TITULO */
+.bike-card-grid h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FB8C00; /* Naranja de tu estilo */
+  margin-bottom: 25px;
 }
 
-.card-image-wrapper {
-  position: relative;
-}
 
-.bike-card img[mat-card-image] {
-  max-height: 200px;
-  object-fit: contain; /* Usa 'contain' para asegurar que la bicicleta se vea completa */
-  padding: 10px;
-  /* Asegura que el fondo de la imagen (si es blanco) no se mezcle */
-  background-color: #f7f7f7;
-}
+/* ========================================= */
+/* === CARD ESTILO LEAD YOUR WAY === */
+/* ========================================= */
 
-.price-overlay {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #555;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.bike-card-content {
-  padding-top: 5px !important;
-}
-
-.bike-model-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.bike-short-description {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.4;
-  margin-top: 10px;
-  /* Estilo para simular la limitación de texto de la imagen */
-  max-height: 4.2em; /* Aproximadamente 3 líneas */
+.example-card {
+  border-radius: 14px !important;
   overflow: hidden;
-  display: -webkit-box;
-  /*-webkit-line-clamp: 3;*/
-  -webkit-box-orient: vertical;
+  border: 1px solid #e0e0e0;
+  transition: all 0.25s ease;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
 }
 
-/* -------------------------------------- */
-/* 4. ACCIONES (CLIENTE vs SUMINISTRADOR) */
-/* -------------------------------------- */
-.bike-card-actions {
+.example-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+}
+
+/* IMAGEN */
+img[mat-card-image] {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; 
+  border-bottom: 2px solid rgba(251, 140, 0, 0.4); /* borde naranja suave */
+}
+
+/* HEADER */
+mat-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+mat-card-subtitle {
+  color: #777;
+}
+
+/* CONTENIDO */
+mat-card-content p {
+  font-size: 0.95rem;
+  color: #444;
+  margin: 6px 0;
+}
+
+mat-card-content p:nth-child(2) {
+  font-weight: bold;
+}
+
+mat-card-content p:first-child strong {
+  color: #FB8C00;
+}
+
+
+/* ========================================= */
+/* === BOTONES (Basado en tu estilo actual) === */
+/* ========================================= */
+
+mat-card-actions {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  /* Alinea el padding para que coincida con el borde de la tarjeta */
-  padding: 10px 16px 16px !important;
+  padding: 10px 16px 16px;
 }
 
-/* ESTILOS PARA CLIENTE */
-.info-button {
-  background-color: #d81b60 !important; /* Rojo vibrante */
+/* Botones CLIENTE */
+button[mat-button][color="primary"] {
+  background-color: #FB8C00 !important; /* naranja */
   color: white !important;
-  font-weight: bold;
-  font-size: 12px;
-  padding: 0 10px;
-  line-height: 30px;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.reserve-button {
-  color: #d81b60 !important; /* Rojo vibrante */
-  font-weight: bold;
-  font-size: 12px;
-  padding: 0 5px;
+button[mat-button][color="primary"]:hover {
+  filter: brightness(1.1);
 }
 
-.reserve-button mat-icon {
-  font-size: 16px;
-  height: 16px;
-  width: 16px;
-  vertical-align: middle;
-  margin-left: -4px;
-}
-
-/* ESTILOS PARA SUMINISTRADOR */
-.admin-edit-button,
-.admin-delete-button {
-  /* Estilos base para que tengan una altura y tamaño coherente con los de cliente */
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 30px;
-  padding: 0 10px;
-}
-
-.admin-edit-button {
-  background-color: #1976d2 !important; /* Azul primario para Editar */
+/* Botón ALQUILAR (accent) */
+button[mat-button][color="accent"] {
+  background-color: #43a047 !important; /* verde */
   color: white !important;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.admin-delete-button {
-  background-color: #f44336 !important; /* Rojo de advertencia para Eliminar */
+button[mat-button][color="accent"]:hover {
+  filter: brightness(1.1);
+}
+
+/* Botones SUMINISTRADOR (EDITAR y ELIMINAR) */
+button[mat-button][color="warn"] {
+  background-color: #e53935 !important; /* rojo */
   color: white !important;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+button[mat-button][color="warn"]:hover {
+  filter: brightness(1.1);
+}
+
+
+
+/* ========================================= */
+/* === RESPONSIVO === */
+/* ========================================= */
+
+@media (max-width: 600px) {
+  .bike-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  mat-card-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  button[mat-button] {
+    width: 100%;
+  }
 }

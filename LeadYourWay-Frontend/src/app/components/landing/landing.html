@@ -1,0 +1,61 @@
+<!-- 
+    LANDING PAGE HTML
+    Usa componentes de Angular Material (<mat-icon>) para todos los iconos 
+    y la ruta absoluta (/assets/bici.jpg) para la imagen Hero.
+-->
+
+<!-- 1. HEADER (Barra de navegación simple para la Landing) -->
+<header class="header">
+   <div class="logo">
+    <img src="assets/lead.jpg" alt="Logo de Lead Your Way" class="logo-img">
+    Lead Your Way
+   </div>
+    <nav class="nav">
+        <a>Servicios</a>
+        <a>Acerca de</a>
+        <a>Contacto</a>
+    </nav>
+</header>
+
+<!-- 2. SECCIÓN HERO -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Lead Your Way</h1>
+        <p>
+            Somos una compañía que ofrece una plataforma digital donde podrás 
+            encontrar bicicletas para todo tipo de usuario. No importa si eres un ciclista profesional o un principiante, tenemos la bicicleta perfecta para ti.
+        </p>
+        <button class="btn-secondary">+INFO</button>
+    </div>
+    <div class="hero-image-container">
+        <img src="/assets/bici.jpg" alt="Bicicleta con fondo de montañas" class="hero-img">
+    </div>
+</section>
+
+<!-- LÍNEA DIVISORA -->
+<hr> 
+
+<!-- 3. SECCIÓN DE CARACTERÍSTICAS -->
+<section class="features-section">
+    <div class="feature-card">
+        <!-- Icono de Ubicaciones (Angular Material) -->
+        <mat-icon class="icon-feature">location_on</mat-icon>
+        <h2>Ubicaciones</h2>
+        <p>Aquí encontrarás dónde están ubicadas todas las bicicletas que podrías alquilar.</p>
+    </div>
+    
+    <div class="feature-card">
+        <!-- Icono de Bicicletas (Angular Material) -->
+        <mat-icon class="icon-feature">pedal_bike</mat-icon>
+        <h2>Bicicletas</h2>
+        <p>Encuentra tu bicicleta de forma más rápida usando nuestros filtros.</p>
+    </div>
+    
+    <div class="feature-card">
+        <!-- Icono de Contacto (Angular Material) -->
+        <mat-icon class="icon-feature">person</mat-icon>
+        <h2>Contacto</h2>
+        <p>Nos puedes contactar por estos canales:</p>
+        <p class="contact-details">+51 999 999 999<br>SERVICIOALCLIENTE@leadyourway.pe</p>
+    </div>
+</section>

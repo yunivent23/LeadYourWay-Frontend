@@ -1,1 +1,102 @@
-<p>bicicletainsertar works!</p>
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <h2>{{ edicion ? 'Editar bicicleta' : 'Registrar bicicleta' }}</h2>
+  </div>
+
+  <div style="text-align: center; margin: 2%">
+    <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+      @if (edicion) {
+      <mat-form-field>
+        <mat-label>ID Bicicleta</mat-label>
+        <input matInput formControlName="idBicicleta" required />
+      </mat-form-field>
+      }
+      <br />
+
+      <!-- Descripción -->
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descripcionBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Tipo -->
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <input matInput formControlName="tipoBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Modelo -->
+      <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput formControlName="modeloBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Marca -->
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marcaBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Color -->
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput formControlName="colorBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Estado de la bicicleta -->
+      <mat-form-field>
+        <mat-label>Estado de la Bicicleta</mat-label>
+        <input matInput formControlName="estadoBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Ubicación -->
+      <mat-form-field>
+        <mat-label>Ubicación</mat-label>
+        <input matInput formControlName="ubicacionBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Precio -->
+      <mat-form-field>
+        <mat-label>Precio (S/)</mat-label>
+        <input matInput type="number" formControlName="precioBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Foto como string -->
+      <mat-form-field>
+        <mat-label>Foto (URL/Base64 temporal)</mat-label>
+        <input matInput formControlName="fotoBicicleta" required />
+      </mat-form-field>
+      <br />
+
+      <!-- Disponible -->
+      <div class="custom-field">
+        <label>Disponibilidad</label>
+        <mat-radio-group formControlName="disponible" required>
+          <mat-radio-button [value]="true">Disponible</mat-radio-button>
+          <mat-radio-button [value]="false">No disponible</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <br />
+
+      <!-- Fecha de publicación automática (solo lectura) -->
+      <mat-form-field>
+        <mat-label>Fecha de Publicación</mat-label>
+        <input matInput formControlName="fechaPublicacion" readonly />
+      </mat-form-field>
+      <br />
+
+      <!-- Botón -->
+      <button matButton type="submit">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </form>
+  </div>
+</div>

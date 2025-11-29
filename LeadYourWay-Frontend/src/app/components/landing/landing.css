@@ -1,0 +1,168 @@
+/* ---------------------------------- */
+/* 1. ESTILOS DEL HEADER / NAVEGACIÓN */
+/* ---------------------------------- */
+
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 80px;
+border-bottom: 1px solid var(--border-light);
+}
+
+.logo {
+font-size: 1.5em;
+font-weight: bold;
+color: var(--text-dark);
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.logo-img { 
+width: 40px;      /* Establecemos un ancho fijo de 30px */
+height: 40px;     /* Establecemos un alto fijo de 30px */
+object-fit: contain; /* Asegura que la imagen se ajuste sin recortarse dentro de los 30x30px */
+margin-right: 5px; /* Pequeño margen para separar del texto si lo necesitas */
+}
+
+
+.nav a {
+text-decoration: none;
+color: var(--text-dark);
+margin: 0 15px;
+font-size: 0.95em;
+}
+
+/* Botón SIGN UP */
+.btn-primary {
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: bold;
+font-size: 0.9em;
+text-transform: uppercase;
+}
+
+/* Botón +INFO (Usado en hero-section) */
+.btn-secondary {
+background-color: #ddd; 
+color: var(--text-dark);
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-weight: 500;
+margin-top: 15px;
+font-size: 0.9em;
+}
+
+/* ---------------------------------- */
+/* 2. ESTILOS SECCIÓN HERO */
+/* ---------------------------------- */
+
+.hero-section {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 80px 80px;
+gap: 60px;
+border-bottom: 1px solid var(--border-light);
+}
+
+.hero-content {
+flex: 1; 
+max-width: 45%;
+}
+
+.hero-content h1 {
+font-size: 3em;
+margin-bottom: 15px;
+font-weight: 600;
+}
+
+.hero-content p {
+color: var(--text-light);
+margin-bottom: 20px;
+line-height: 1.7;
+font-size: 1.05em;
+}
+
+.hero-image-container {
+flex: 1; 
+max-width: 55%;
+border-radius: 15px;
+overflow: hidden; 
+background-color: white;
+padding: 15px;
+border: 1px solid var(--border-light);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 10px;
+}
+
+/* ------------------------------------ */
+/* 3. ESTILOS SECCIÓN DE CARACTERÍSTICAS */
+/* ------------------------------------ */
+
+.features-section {
+display: flex;
+justify-content: space-between;
+padding: 60px 80px;
+gap: 40px;
+text-align: center;
+}
+
+.feature-card {
+flex: 1;
+max-width: 33.33%;
+padding: 20px;
+}
+
+/* Aplicando estilos al mat-icon con la clase icon-feature.
+    SOLUCIÓN AL APLASTAMIENTO: Usar Flexbox para centrar el icono dentro de su burbuja.
+    Aumentamos el tamaño de la burbuja para que el icono de 48px se vea mejor.
+*/
+.icon-feature {
+font-size: 48px; /* Tamaño del icono */
+color: var(--accent-color);
+background-color: rgba(255, 69, 0, 0.1);
+border-radius: 50%;
+margin-bottom: 15px;
+
+/* Nuevas reglas de centrado para el contenedor (mat-icon) */
+display: flex;
+justify-content: center;
+align-items: center;
+
+/* Aumentar el tamaño de la burbuja contenedora */
+width: 70px;
+height: 70px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.feature-card h2 {
+font-size: 1.25em;
+margin-bottom: 10px;
+}
+
+.feature-card p {
+color: var(--text-light);
+font-size: 0.95em;
+margin-bottom: 5px;
+}
+
+.contact-details {
+font-weight: 500;
+color: var(--text-dark);
+margin-top: 10px;
+}

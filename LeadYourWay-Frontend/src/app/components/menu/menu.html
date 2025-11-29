@@ -1,41 +1,99 @@
 <div class="container">
-  <mat-toolbar class="custom-toolbar">
-    <button
-      class="btn-rojo"
-      mat-Button
-      [matMenuTriggerFor]="menuUsuarios"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon>person</mat-icon>Usuario
-    </button>
-    <button
-      class="btn-rojo"
-      mat-Button
-      [matMenuTriggerFor]="menuBicicletas"
-      aria-label="Example icon-button with menu icon"
-    >
-      <mat-icon> directions_bike</mat-icon>Bicicleta
-    </button>
-    <button
-      class="btn-rojo"
-      mat-Button
-      routerLink="/sesion/inicio"
-      aria-label="Ir a inicio de sesión"
-    >
-      <mat-icon>login</mat-icon>Log in
-    </button>
-  </mat-toolbar>
+  @if(verificar()){
+    <mat-toolbar class="custom-toolbar">
+        
+      @if(isSumi()){
+        <button
+          class="btn-rojo"
+          mat-Button
+          [matMenuTriggerFor]="menuUsuarios"
+          aria-label="Menú Usuario"
+        >
+          <mat-icon>business</mat-icon>Usuario
+        </button>
+      }
+      @if(isClient() || isSumi()){
+        <button
+          class="btn-rojo"
+          mat-Button
+          [matMenuTriggerFor]="menuBicicletas"
+          aria-label="Menú Bicicleta"
+        >
+          <mat-icon>computer</mat-icon>Bicicleta
+        </button>
+      }
 
-  <mat-menu #menuUsuarios="matMenu">
-    <button mat-menu-item routerLink="/users"><mat-icon>list</mat-icon>Listar</button>
-    <button mat-menu-item routerLink="/users/news"><mat-icon>add</mat-icon>Registrar</button>
-    <button mat-menu-item routerLink="/users/searchs"><mat-icon>search</mat-icon>Buscar</button>
+        <button 
+          class="btn-rojo"
+          mat-Button
+          routerLink="/landing" 
+          aria-label="Página de inicio"
+        >
+          <mat-icon>home</mat-icon>Inicio
+        </button>
+
+          <button 
+          class="btn-rojo"
+          mat-Button
+          routerLink="/chats" 
+          aria-label="Chats y Mensajes"
+        >
+          <mat-icon>forum</mat-icon>Chats
+        </button>
+
+        <span class="spacer"></span>
+        
+        <button 
+          mat-icon-button 
+          [matMenuTriggerFor]="notificacionMenu"
+          aria-label="Botón de Notificaciones"
+          style="margin-right: 15px;"> <mat-icon>notifications</mat-icon>
+        </button>
+
+        <button mat-button [matMenuTriggerFor]="menuSalir">
+        <mat-icon>person</mat-icon>Usuario
+        </button>
+
+
+    </mat-toolbar>
+
+  }
+ 
+
+    <mat-menu #menuUsuarios="matMenu">
+        <button mat-menu-item routerLink="/users"><mat-icon>list</mat-icon>Listar</button>
+        <button mat-menu-item routerLink="/users/news"><mat-icon>add</mat-icon>Registrar</button>
+        <button mat-menu-item routerLink="/users/searchs"><mat-icon>search</mat-icon>Buscar</button>
+    </mat-menu>
+    <mat-menu #menuBicicletas="matMenu">
+        <button mat-menu-item routerLink="/bicicleta"><mat-icon>list</mat-icon>Listar</button>
+        <button mat-menu-item routerLink="/bicicleta/news"><mat-icon>add</mat-icon>Registrar</button>
+        <button mat-menu-item routerLink="/bicicleta/searchs"><mat-icon>search</mat-icon>Buscar</button>
+    </mat-menu>
+
+
+    <mat-menu #notificacionMenu="matMenu">
+        <button mat-menu-item disabled>
+            No hay notificaciones
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/ruta-de-notificaciones">
+            Ver todas
+        </button>
+    </mat-menu>
+
+      <mat-menu #menuSalir="matMenu">
+    <button mat-menu-item routerLink="/login" (click)="cerrar()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar sesión</span>
+    </button>
+    <button mat-menu-item>
+      Rol:
+      <span>{{ role }}</span>
+    </button>
   </mat-menu>
-  <mat-menu #menuBicicletas="matMenu">
-    <button mat-menu-item routerLink="/bicicleta"><mat-icon>list</mat-icon>Listar</button>
-    <button mat-menu-item routerLink="/bicicleta/news"><mat-icon>add</mat-icon>Registrar</button>
-    <button mat-menu-item routerLink="/bicicleta/searchs"><mat-icon>search</mat-icon>Buscar</button>
-  </mat-menu>
-  
+
+
+
 </div>
 

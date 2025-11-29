@@ -1,0 +1,49 @@
+/* --- Estilos específicos del componente ChatListComponent --- */
+
+/* Asegura que el contenedor principal use Flexbox para la alineación si es necesario, 
+   aunque Tailwind ya maneja esto, es una buena práctica. */
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+/* Estilo para el contenedor de mat-card de Acceso Denegado (si no es cliente) */
+.bg-red-100 {
+    /* Asegura que el texto dentro de la tarjeta sea legible */
+    color: #7f1d1d; 
+}
+
+/* --- Estilos para la lista de suministradores --- */
+
+/* Estilo general para las tarjetas de suministradores */
+.mat-mdc-card {
+    border-radius: 12px; /* Bordes más suaves */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra estándar */
+    transition: transform 0.2s ease;
+}
+
+.mat-mdc-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño desplazamiento hacia arriba */
+}
+
+/* Estilo para el icono de la tienda/suministrador */
+.text-pink-500.text-3xl {
+    /* Asegura que el ícono tenga un tamaño adecuado */
+    font-size: 36px;
+    height: 36px;
+    width: 36px;
+}
+
+/* --- Estilos para el botón "Iniciar Chat" (mat-flat-button) --- */
+
+/* Los estilos de Tailwind (bg-pink-600, hover:bg-pink-700) ya manejan el color, 
+   pero ajustamos para el texto de Angular Material. */
+.bg-pink-600.mat-mdc-button {
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+    height: 48px; /* Altura estándar de botón */
+    min-width: 120px;
+}

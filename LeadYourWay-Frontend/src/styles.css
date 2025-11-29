@@ -2,3 +2,37 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* 1. VARIABLES GLOBALES */
+:root {
+    --primary-color: #5d8aa8; 
+    --accent-color: #ff4500; 
+    --background-color: #f7f7f7;
+    --text-light: #555;
+    --text-dark: #222;
+    --border-light: #e0e0e0;
+}
+
+/* 2. RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 3. ESTILO DEL CUERPO Y FUENTE */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: white;
+}
+
+/* 4. ESTILOS DE FUENTES DE ICONOS (para el styling de la landing) */
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
