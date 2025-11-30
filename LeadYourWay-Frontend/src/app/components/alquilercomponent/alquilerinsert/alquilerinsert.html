@@ -1,0 +1,119 @@
+<div class="container">
+  <div style="text-align: center; margin: 3%">
+    <!-- Título del formulario -->
+    <h2>{{ edicion ? 'Editar Alquiler' : 'Registrar Nuevo Alquiler' }}</h2>
+  </div>
+
+  <div style="text-align: center; margin: 2%">
+    <!-- Cambiado de aceptar() a iniciarPago() -->
+    <form [formGroup]="form" (ngSubmit)="iniciarPago()" class="alquiler-form" novalidate>
+      <!-- ID Alquiler (Solo visible en edición) -->
+      @if (edicion) {
+      <mat-form-field>
+        <mat-label>ID Alquiler</mat-label>
+        <input matInput formControlName="idAlquiler" required readonly />
+      </mat-form-field>
+      }
+      <br />
+
+      <!-- Precio Total -->
+      <mat-form-field>
+        <mat-label>Precio Total (S/)</mat-label>
+        <input matInput type="number" formControlName="precioTotal" required />
+        @if (form.get('precioTotal')?.errors?.['required'] && form.get('precioTotal')?.touched) {
+        <mat-error>El precio total es requerido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Fecha Inicio -->
+      <mat-form-field>
+        <mat-label>Fecha de Inicio</mat-label>
+        <input matInput [matDatepicker]="pickerInicio" formControlName="fechaInicio" required />
+        <mat-datepicker-toggle matSuffix [for]="pickerInicio"></mat-datepicker-toggle>
+        <mat-datepicker #pickerInicio></mat-datepicker>
+        @if (form.get('fechaInicio')?.errors?.['required'] && form.get('fechaInicio')?.touched) {
+        <mat-error>La fecha de inicio es requerida.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Fecha Fin -->
+      <mat-form-field>
+        <mat-label>Fecha de Fin</mat-label>
+        <input matInput [matDatepicker]="pickerFin" formControlName="fechaFin" required />
+        <mat-datepicker-toggle matSuffix [for]="pickerFin"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFin></mat-datepicker>
+        @if (form.get('fechaFin')?.errors?.['required'] && form.get('fechaFin')?.touched) {
+        <mat-error>La fecha de fin es requerida.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Estado Alquiler (Usamos Select para valores fijos) -->
+      <mat-form-field>
+        <mat-label>Estado del Alquiler</mat-label>
+        <mat-select formControlName="estadoAlquiler" required>
+          @for (e of estadosAlquiler; track e.value) {
+          <mat-option [value]="e.value">{{ e.viewValue }}</mat-option>
+          }
+        </mat-select>
+        @if (form.get('estadoAlquiler')?.errors?.['required'] &&
+        form.get('estadoAlquiler')?.touched) {
+        <mat-error>El estado del alquiler es requerido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- IDs de Entidades Relacionadas -->
+
+      <!-- ID Bicicleta (FK 1) -->
+      <mat-form-field>
+        <mat-label>ID Bicicleta</mat-label>
+        <input matInput type="number" formControlName="idBicicleta" required />
+        @if (form.get('idBicicleta')?.errors?.['required'] && form.get('idBicicleta')?.touched) {
+        <mat-error>El ID de la Bicicleta es requerido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- ID Cliente (FK 2) -->
+      <mat-form-field>
+        <mat-label>ID Cliente</mat-label>
+        <input matInput type="number" formControlName="idCliente" required />
+        @if (form.get('idCliente')?.errors?.['required'] && form.get('idCliente')?.touched) {
+        <mat-error>El ID del Cliente es requerido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- ID Suministrador (FK 3) -->
+      <mat-form-field>
+        <mat-label>ID Suministrador</mat-label>
+        <input matInput type="number" formControlName="idSuministrador" required />
+        @if (form.get('idSuministrador')?.errors?.['required'] &&
+        form.get('idSuministrador')?.touched) {
+        <mat-error>El ID del Suministrador es requerido.</mat-error>
+        }
+      </mat-form-field>
+      <br />
+
+      <!-- Botones de Acción -->
+      <div class="flex-row">
+        <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid">
+          <!-- Texto del botón cambiado para iniciar el pago -->
+          Ir a pagar
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          [routerLink]="['/alquileres']"
+          style="margin-left: 10px"
+        >
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

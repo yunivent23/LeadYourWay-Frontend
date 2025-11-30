@@ -34,9 +34,12 @@ export class Usuarioservice {
   delete(id:number){
     return this.http.delete(`${this.url}/${id}`, { responseType: 'text' });
   }
-  searchName(nombre:string){
-    const params={n:nombre};
-    return this.http.get<Users[]>(`${this.url}/busquedas`, { params });
+  searchName(nombre: string) {
+  const token = sessionStorage.getItem('token');
+  const headers = { Authorization: `Bearer ${token}` };
+  const params = { nombre: nombre };
+  return this.http.get<Users[]>(`${this.url}/busquedas`, { params, headers });
   }
 
 }
+

@@ -2,13 +2,13 @@ import { Users } from "./users"
 
 export class Bicicleta{
     idBicicleta:number=0
-    descripcionBicicleta:String=""
-    tipoBicicleta:String=""
-    marcaBicicleta:String=""
-    colorBicicleta:String=""
-    estadoBicicleta:String=""
+    descripcionBicicleta:string=""
+    tipoBicicleta:string=""
+    marcaBicicleta:string=""
+    colorBicicleta:string=""
+    estadoBicicleta:string=""
     precioBicicleta:number=0
-    ubicacionBicicletaString=""
+    ubicacionBicicleta:string=""
     disponible:boolean=false
     vistas:number=0
     fechaPublicacion:Date=new Date();

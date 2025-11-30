@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 style="text-align:center; margin-bottom:20px;">Formulario de Pago</h2>
+
+  <form [formGroup]="form" (ngSubmit)="pagar()" class="example-form">
+    <mat-form-field>
+      <mat-label>Monto (en centavos)</mat-label>
+      <input matInput formControlName="amount" type="number" required />
+      <mat-error *ngIf="form.get('amount')?.hasError('required')">
+        El monto es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="form.get('amount')?.hasError('min')">
+        El monto debe ser al menos 50 centavos.
+      </mat-error>
+    </mat-form-field>
+
+    <div id="card-element" class="card-element" style="padding:10px; border:1px solid #ccc; border-radius:6px;"></div>
+    <div class="card-errors" style="color:red; margin-top:10px;">{{ cardErrors }}</div>
+
+    <button matButton type="submit" style="margin-top:15px;">Pagar</button>
+  </form>
+</div>

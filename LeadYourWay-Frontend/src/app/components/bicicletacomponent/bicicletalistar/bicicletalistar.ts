@@ -12,7 +12,7 @@ type UserRole = 'cliente' | 'suministrador' | 'invitado';
 
 @Component({
   selector: 'app-bicicletalistar',
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, RouterLink],
   templateUrl: './bicicletalistar.html',
   styleUrl: './bicicletalistar.css',
 })
@@ -83,4 +83,18 @@ export class Bicicletalistar implements OnInit {
       },
     });
   }
+
+  verMasInfo(bici: Bicicleta) {
+  // Incrementar vistas
+  bici.vistas = (bici.vistas ?? 0) + 1;
+
+  // Enviar actualización al backend
+  this.bS.update(bici).subscribe(() => {
+    console.log("Vistas actualizadas:", bici.vistas);
+
+    // Luego de actualizar, navegar a la vista de detalle
+    this.router.navigate(['bicicletas', bici.idBicicleta]);
+  });
+}
+
 }

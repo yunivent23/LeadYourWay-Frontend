@@ -21,11 +21,11 @@
     <mat-card-actions>
 
       <!-- BOTONES PARA CLIENTE -->
-      <button mat-button color="primary" *ngIf="esCliente()">
+      <button mat-button color="primary" *ngIf="esCliente()" (click)="verMasInfo(bici)">
         Ver más información
       </button>
 
-      <button mat-button color="accent" *ngIf="esCliente()">
+      <button mat-button color="accent" *ngIf="esCliente()" >
         Alquilar
       </button>
 
